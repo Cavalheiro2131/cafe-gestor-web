@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Tipo de Café – Café Gestor</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body class="app" data-pagina="tipo-cafe-form" data-protegida data-exige-edicao>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+  <div class="app-layout">
+    <aside class="menu" id="menu" aria-label="Menu principal">
+      <div class="menu-topo">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-nav" aria-expanded="false" aria-label="Abrir ou fechar o menu">&#9776;</button>
+        <span id="menu-perfil"></span>
+      </div>
+      <nav class="menu-nav" id="menu-nav" aria-label="Seções do sistema"></nav>
+      <div class="menu-rodape">
+        <span id="menu-usuario"></span>
+        <button type="button" class="btn btn-link" id="btn-sair">Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo" id="conteudo" tabindex="-1">
+      <header class="cabecalho">
+        <p class="marca">CAFE GESTOR</p>
+        <h1 class="titulo-pagina">Cadastro de Tipo de Café</h1>
+      </header>
+      <noscript><p class="aviso aviso-erro">Este sistema precisa de JavaScript ativado para funcionar.</p></noscript>
+
+      <section class="painel">
+        <h2>Dados do tipo de café</h2>
+        <form id="form-tipo-cafe" class="formulario" novalidate>
+          <div class="campo">
+            <label for="nome" class="obrigatorio">Nome</label>
+            <input type="text" id="nome" name="nome" maxlength="50" autocomplete="off">
+            <span class="erro" id="erro-nome" role="alert"></span>
+          </div>
+          <div class="campo">
+            <label for="variedade">Variedade</label>
+            <input type="text" id="variedade" name="variedade" maxlength="50" autocomplete="off">
+            <span class="erro" id="erro-variedade" role="alert"></span>
+          </div>
+          <div class="campo">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" maxlength="1000"></textarea>
+            <p class="contador" id="contador-observacoes" aria-live="polite"></p>
+            <span class="erro" id="erro-observacoes" role="alert"></span>
+          </div>
+          <p class="erro erro-geral" id="erro-geral" role="alert"></p>
+          <div class="acoes-form">
+            <button type="submit" class="btn btn-primario">Salvar</button>
+            <a class="btn btn-secundario" href="tipos-cafe.html">Cancelar</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="js/util.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sessao.js"></script>
+  <script src="js/validacao.js"></script>
+  <script src="js/pagina.js"></script>
+  <script src="js/pagina-tipo-cafe-form.js"></script>
+</body>
+</html>

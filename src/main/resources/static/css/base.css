@@ -1,0 +1,61 @@
+/* base.css - variáveis (paleta do protótipo no Figma), reset e tipografia */
+:root {
+  --marrom: #6b4a35;
+  --marrom-escuro: #4e3525;
+  --bege: #c4a484;
+  --bege-escuro: #a98562;
+  --creme: #f6efe7;
+  --rosado: #fff3f0;
+  --texto: #2d2118;
+  --texto-suave: #6a5a4d;
+  --branco: #ffffff;
+  --verde: #1f7a37;
+  --verde-escuro: #165a28;
+  --vermelho: #b3261e;
+  --vermelho-escuro: #8c1d17;
+  --cinza-borda: #d9cfc5;
+  --foco: #ffb703;
+  --raio: 8px;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --fonte-texto: Georgia, "Times New Roman", serif;
+  --fonte-ui: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  color: var(--texto);
+  background: var(--marrom);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+img { max-width: 100%; }
+
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

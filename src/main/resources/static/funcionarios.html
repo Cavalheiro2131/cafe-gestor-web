@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funcionários – Café Gestor</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body class="app" data-pagina="funcionarios" data-protegida>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+  <div class="app-layout">
+    <aside class="menu" id="menu" aria-label="Menu principal">
+      <div class="menu-topo">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-nav" aria-expanded="false" aria-label="Abrir ou fechar o menu">&#9776;</button>
+        <span id="menu-perfil"></span>
+      </div>
+      <nav class="menu-nav" id="menu-nav" aria-label="Seções do sistema"></nav>
+      <div class="menu-rodape">
+        <span id="menu-usuario"></span>
+        <button type="button" class="btn btn-link" id="btn-sair">Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo" id="conteudo" tabindex="-1">
+      <header class="cabecalho">
+        <p class="marca">CAFE GESTOR</p>
+        <h1 class="titulo-pagina">Funcionários</h1>
+      </header>
+      <noscript><p class="aviso aviso-erro">Este sistema precisa de JavaScript ativado para funcionar.</p></noscript>
+
+      <section class="painel" aria-label="Lista de funcionários">
+        <div class="barra-ferramentas">
+          <div class="campo">
+            <label for="filtro-texto">Buscar</label>
+            <input type="search" id="filtro-texto" placeholder="Nome ou função">
+          </div>
+          <div class="campo">
+            <label for="filtro-status">Situação</label>
+            <select id="filtro-status">
+              <option value="todos">Todos</option>
+              <option value="ativos">Ativos</option>
+              <option value="inativos">Inativos</option>
+            </select>
+          </div>
+          <a class="btn btn-primario" id="btn-novo" href="funcionario-form.html" hidden>Novo funcionário</a>
+        </div>
+        <p class="ajuda" id="contagem" aria-live="polite"></p>
+        <div class="tabela-wrapper">
+          <table class="tabela">
+            <caption class="visualmente-oculto">Funcionários cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Função</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Situação</th>
+                <th scope="col" id="col-acoes">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-corpo"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/util.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sessao.js"></script>
+  <script src="js/validacao.js"></script>
+  <script src="js/pagina.js"></script>
+  <script src="js/pagina-funcionarios.js"></script>
+</body>
+</html>

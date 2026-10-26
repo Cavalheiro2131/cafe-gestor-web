@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estoque – Café Gestor</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body class="app" data-pagina="estoque" data-protegida>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+  <div class="app-layout">
+    <aside class="menu" id="menu" aria-label="Menu principal">
+      <div class="menu-topo">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-nav" aria-expanded="false" aria-label="Abrir ou fechar o menu">&#9776;</button>
+        <span id="menu-perfil"></span>
+      </div>
+      <nav class="menu-nav" id="menu-nav" aria-label="Seções do sistema"></nav>
+      <div class="menu-rodape">
+        <span id="menu-usuario"></span>
+        <button type="button" class="btn btn-link" id="btn-sair">Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo" id="conteudo" tabindex="-1">
+      <header class="cabecalho">
+        <p class="marca">CAFE GESTOR</p>
+        <h1 class="titulo-pagina">Estoque</h1>
+      </header>
+      <noscript><p class="aviso aviso-erro">Este sistema precisa de JavaScript ativado para funcionar.</p></noscript>
+
+      <section class="painel" aria-label="Consulta de estoque">
+        <div class="barra-ferramentas">
+          <div class="abas" role="tablist" aria-label="Visões do estoque">
+            <button type="button" class="aba" role="tab" id="aba-saldos" aria-controls="painel-saldos" aria-selected="true">Saldos</button>
+            <button type="button" class="aba" role="tab" id="aba-historico" aria-controls="painel-historico" aria-selected="false" tabindex="-1">Histórico</button>
+          </div>
+          <a class="btn btn-primario" id="btn-novo" href="estoque-movimentacao.html" hidden>Registrar entrada ou saída</a>
+        </div>
+
+        <div id="painel-saldos" role="tabpanel" aria-labelledby="aba-saldos">
+          <div class="tabela-wrapper">
+            <table class="tabela">
+              <caption class="visualmente-oculto">Saldo de sacas por tipo de café</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Tipo de café</th>
+                  <th scope="col" class="numero">Saldo (sacas)</th>
+                </tr>
+              </thead>
+              <tbody id="saldos-corpo"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="painel-historico" role="tabpanel" aria-labelledby="aba-historico" hidden>
+          <div class="barra-ferramentas">
+            <div class="campo">
+              <label for="filtro-tipo-historico">Tipo de café</label>
+              <select id="filtro-tipo-historico"></select>
+            </div>
+          </div>
+          <p class="ajuda" id="contagem-historico" aria-live="polite"></p>
+          <div class="tabela-wrapper">
+            <table class="tabela">
+              <caption class="visualmente-oculto">Histórico de entradas e saídas</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Movimento</th>
+                  <th scope="col">Tipo de café</th>
+                  <th scope="col" class="numero">Quantidade</th>
+                  <th scope="col">Destino ou nota</th>
+                </tr>
+              </thead>
+              <tbody id="historico-corpo"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/util.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sessao.js"></script>
+  <script src="js/validacao.js"></script>
+  <script src="js/pagina.js"></script>
+  <script src="js/pagina-estoque.js"></script>
+</body>
+</html>

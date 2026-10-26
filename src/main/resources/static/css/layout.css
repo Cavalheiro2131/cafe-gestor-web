@@ -1,0 +1,126 @@
+/* layout.css - estrutura das páginas: menu lateral, conteúdo e tela de login */
+.pular-conteudo {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--branco);
+  color: var(--texto);
+}
+.pular-conteudo:focus { left: 0; }
+
+/* ---------- páginas internas ---------- */
+.app-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--rosado);
+  color: var(--texto);
+  border-right: 4px solid var(--marrom-escuro);
+  font-family: var(--fonte-ui);
+}
+
+.menu-topo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--cinza-borda);
+  font-weight: 700;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 0.25rem 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--texto);
+  background: transparent;
+  border: 1px solid var(--texto-suave);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.menu-nav { flex: 1; padding: 0.5rem 0; overflow-y: auto; }
+
+.menu-titulo {
+  margin: 0.75rem 1rem 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.menu-nav ul { margin: 0; padding: 0; list-style: none; }
+
+.menu-nav a {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: var(--texto);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cinza-borda);
+  font-size: 0.95rem;
+}
+.menu-nav a:hover { background: #ffe4de; }
+.menu-nav a[aria-current="page"] { background: var(--bege); font-weight: 700; }
+
+.menu-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-top: 1px solid var(--cinza-borda);
+  font-size: 0.9rem;
+}
+
+.conteudo {
+  min-width: 0;
+  padding: 1.5rem 2rem 3rem;
+  color: var(--branco);
+}
+
+.cabecalho { margin-bottom: 1.25rem; }
+
+.marca {
+  margin: 0;
+  font-family: var(--fonte-ui);
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.marca-grande { font-size: 2.4rem; text-align: center; }
+
+.titulo-pagina { margin: 0.25rem 0 0; font-size: 1.35rem; font-weight: 400; }
+
+/* ---------- tela de login ---------- */
+body.login {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  color: var(--branco);
+}
+
+.login-caixa { width: 100%; max-width: 420px; }
+.login-caixa .subtitulo { margin: 0.25rem 0 1.5rem; text-align: center; font-size: 1.35rem; font-weight: 400; }
+
+/* ---------- telas pequenas ---------- */
+@media (max-width: 800px) {
+  .app-layout { grid-template-columns: 1fr; }
+  .menu { border-right: 0; border-bottom: 4px solid var(--marrom-escuro); }
+  .menu-toggle { display: inline-block; }
+  .menu-nav, .menu-rodape { display: none; }
+  .menu.aberto .menu-nav { display: block; }
+  .menu.aberto .menu-rodape { display: flex; }
+  .conteudo { padding: 1rem 1rem 2.5rem; }
+  .marca { font-size: 1.6rem; }
+}

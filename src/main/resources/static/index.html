@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login – Café Gestor</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+</head>
+<body class="login" data-pagina="login">
+  <main class="login-caixa">
+    <h1 class="marca marca-grande">CAFE GESTOR</h1>
+    <h2 class="subtitulo">Tela Login</h2>
+
+    <p class="aviso" id="aviso-login" role="status" hidden></p>
+
+    <form id="form-login" novalidate>
+      <div class="campo">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login" maxlength="50" autocomplete="username" autofocus>
+        <span class="erro" id="erro-login" role="alert"></span>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" maxlength="100" autocomplete="current-password">
+        <span class="erro" id="erro-senha" role="alert"></span>
+      </div>
+      <label class="opcao"><input type="checkbox" id="mostrar-senha"> Mostrar senha</label>
+      <p class="erro erro-geral" id="erro-geral" role="alert"></p>
+      <button type="submit" class="btn btn-primario btn-bloco">Entrar</button>
+    </form>
+
+    <details class="demo">
+      <summary>Contas iniciais</summary>
+      <ul>
+        <li><strong>admin</strong> / admin123 (ADMIN: consulta e altera)</li>
+        <li><strong>gerente</strong> / gerente123 (GERENTE: consulta e altera)</li>
+        <li><strong>operador</strong> / operador123 (OPERADOR: só consulta)</li>
+      </ul>
+      <p>Contas criadas pelo script <code>sql/dados_iniciais.sql</code> (ou pelo perfil <code>memoria</code>). Troque as senhas em uso real.</p>
+    </details>
+  </main>
+  <script src="js/util.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sessao.js"></script>
+  <script src="js/validacao.js"></script>
+  <script src="js/pagina-login.js"></script>
+</body>
+</html>
